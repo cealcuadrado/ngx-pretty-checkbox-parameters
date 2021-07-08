@@ -1,0 +1,131 @@
+<div class="row text-center">
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Stroke</label>
+      <select class="form-control" [(ngModel)]="currentStroke">
+        <option *ngFor="let stroke of strokes">
+          {{stroke}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Color</label>
+      <select class="form-control" [(ngModel)]="currentColor">
+        <option *ngFor="let color of colors">
+          {{color}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Animation</label>
+      <select class="form-control" [(ngModel)]="currentAnimation">
+        <option *ngFor="let animation of animations">
+          {{animation}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Outline</label>
+      <br>
+      <ui-switch
+        size="small"
+         [(ngModel)]="currentOutline"
+         checkedLabel="true"
+         uncheckedLabel="false">
+      </ui-switch>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Shape</label>
+      <select class="form-control" [(ngModel)]="currentShape">
+        <option *ngFor="let shape of shapes">
+          {{shape}}
+        </option>
+      </select>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Plain</label>
+      <br>
+      <ui-switch
+        size="small"
+        [(ngModel)]="currentPlain"
+        checkedLabel="true"
+        uncheckedLabel="false">
+      </ui-switch>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Size: {{currentSize}}px</label>
+      <br>
+      <input type="range" min="6" max="48" step="1" value="14" [(ngModel)]="currentSize" />
+    </div>
+    <button class="btn btn-success" type="button" (click)="resetSize()">
+      Reset Size
+    </button>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Disable Checkbox</label>
+      <br>
+      <ui-switch
+        size="small"
+        [(ngModel)]="currentDisable"
+        checkedLabel="true"
+        uncheckedLabel="false">
+      </ui-switch>
+    </div>
+  </div>
+  <div class="col-lg-2">
+    <div class="form-group">
+      <label>Lock Checkbox</label>
+      <br>
+      <ui-switch
+        size="small"
+        [(ngModel)]="currentLock"
+        checkedLabel="true"
+        uncheckedLabel="false">
+      </ui-switch>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 col-lg-4 offset-lg-4 text-center">
+    <div class="form-group">
+      <p-checkbox
+        will-change
+        [stroke]="currentStroke"
+        [color]="currentColor"
+        [outline]="currentOutline"
+        [lock]="currentLock"
+        [animation]="currentAnimation"
+        [disabled]="currentDisable"
+        [style.fontSize.px]="currentSize"
+        [shape]="currentShape">
+        Click and Unclick Me!
+      </p-checkbox>
+    </div>
+  </div>
+</div>
+
+<hr>
+
+<div class="row">
+  <div class="col-12 text-center">
+    <button class="btn btn-danger" type="button" (click)="defaultSettings()">
+      Reset to Default Settings
+    </button>
+  </div>
+</div>
